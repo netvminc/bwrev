@@ -2,14 +2,6 @@ var isMobileApp = false;
 var isApp = false;
 var isDesktop = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i) == null;
 
-var isFirefoxBrowser = /Firefox/.test(navigator.userAgent)
-var isChromeBrowser = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-var isEdgeBrowser = /Edg/.test(navigator.userAgent);
-// wait until it gets released
-//var urlChrome = "https://www.mediafire.com/file/ykd37x0t2tzz8fl/BonziWORLD_Revived%252B_Chrome_App.rar/file";
-var urlFirefox = "https://addons.mozilla.org/en-US/firefox/addon/bonziworld-revived-beta/";
-var urlChrome = "./downloads/chrome/bwrplusaddon.zip";
-
 var isiOS = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)/i) != null;
 var urlGPlay = "https://play.google.com/store/apps/details?id=com.jojudge.bonziworld";
 
@@ -39,28 +31,6 @@ $(function() {
 	if (!supported) {
 		$("#page_unsupp").show();
 	}
-
-	if (isChromeBrowser && isDesktop) {
-		$(".app_showcase").append(
-			'<a class="app_chrome" href="' + urlChrome + '">' +
-				'<img src="./img/app/webstore.png" alt="Chrome Extension" />' +
-			'</a>'
-		);
-   }
-   if (isEdgeBrowser && isDesktop) {
-	   $(".app_showcase").append(
-		   '<a class="app_edge" href="' + urlChrome + '">' +
-			   '<img src="./img/app/edge_store.png" alt="Chrome Extension" />' +
-		   '</a>'
-	   );
-  }
-   if (isFirefoxBrowser && isDesktop) {
-		$(".app_showcase").append(
-			'<a class="app_chrome" href="' + urlFirefox + '">' +
-				'<img src="./img/app/firefox_addon.png" alt="Firefox Extension" />' +
-			'</a>'
-		);
-   }
 
 	if (!isiOS) {
 		$(".app_showcase").append(

@@ -783,7 +783,6 @@ class User {
 			this.private.sanitize = false;
 		}
        this.socket.on('login', this.login.bind(this));
-       this.socket.on('register', this.register.bind(this));
     }
 
     getIp() {
@@ -878,38 +877,7 @@ class User {
 		if (data.name.match(/Seamus/gi) && this.private.runlevel < 3) {
 			data.name = "Impersonator"
 		}
-		if (data.name == "Diogo" && this.getIp() == "84.91.29.6") {
-			//this.public.color = "diogo";
-		}
 		let text = data.name;
-		if (!text.match(/night/gi)) {
-				text = text.replace(/nig/gi,"bobba ")
-			}
-			text = text.replace(/nïg/gi, "bobba ")
-			text = text.replace(/nijg/gi,"bobba ")
-			text = text.replace(/ninj/gi,"bobba ")
-			text = text.replace(/nijj/gi,"bobba ")
-			text = text.replace(/nii/gi,"bobba ") // ugh
-			text = text.replace(/nie/gi,"bobba ")
-			text = text.replace(/nei/gi,"bobba ")
-			text = text.replace(/nih/gi,"bobba ")
-			text = text.replace(/ni'g/gi,"bobba ")
-			text = text.replace(/n'ig/gi,"bobba ")
-			text = text.replace(/neeg/gi,"bobba ") // really crappy
-			if (!text.match(/might/gi)) {
-				text = text.replace(/mig/gi,"bobba ")
-			}
-			text = text.replace(/mijg/gi,"bobba ")
-			text = text.replace(/mijj/gi,"bobba ")
-			text = text.replace(/mii/gi,"bobba ")
-			text = text.replace(/mie/gi,"bobba ")
-			text = text.replace(/mei/gi,"bobba ")
-			text = text.replace(/mih/gi,"bobba ")
-			text = text.replace(/mi'g/gi,"bobba ")
-			text = text.replace(/m'ig/gi,"bobba ")
-			text = text.replace(/meeg/gi,"bobba ")
-            text = text.replace(/{NAME}/gi,"Anonymous")
-            text = text.replace(/{COLOR}/gi,this.public.color)
 		this.public.name = sanitize(data.name) || this.room.prefs.defaultName;
         if (this.public.name.includes == "Cosmic") {
             this.public.name.replace("Cosmic", "Imposter");

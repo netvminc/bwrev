@@ -1,6 +1,5 @@
 const Ban = require('./ban.js');
 const io = require('./index.js').io;
-const io2 = require('./index.js').io2;
 let commands = {
     "ban": {
         "help": "ip [length reason]",
@@ -107,7 +106,6 @@ let commands = {
 				return console.log(this.help);
 				
             io.emit("broadcast",args.join(" "));
-            io2.emit("broadcast",args.join(" "));
         }
     },
     "kick": {

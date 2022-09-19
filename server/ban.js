@@ -5,7 +5,6 @@ const io = require('./index.js').io;
 const sanitize = require('sanitize-html');
 
 let bans;
-let accounts;
 let hardwarebans;
 
 exports.init = function() {
@@ -45,7 +44,6 @@ exports.init = function() {
         reports = require("./reports.json");
     });*/
 };
-exports.bonziAccounts = require("./accounts.json");
 exports.saveBans = function() {
 	fs.writeFile(
 		"./bans.json",
@@ -307,10 +305,6 @@ exports.login = function(ip, reason) {
 exports.isBanned = function(ip) {
     return Object.keys(bans).indexOf(ip) != -1;
 };
-exports.hasAnAccount = function(ip) {
-    return Object.keys(accounts).indexOf(ip) != -1;
-};
-
 exports.isHardwareBanned = function(ip,agent) {
     return Object.keys(hardwarebans).indexOf(agent) != -1;
 };

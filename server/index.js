@@ -69,6 +69,7 @@ var server = require('http').createServer(app);
 }; */
 
 // Init socket.io
+var io = require('socket.io')(server);
 var port = process.env.PORT || settings.port;
 
 exports.io = io;
