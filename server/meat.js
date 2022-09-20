@@ -901,24 +901,6 @@ class User {
 				this.room.prefs.pitch.max
 			);
 		else this.public.pitch = this.room.prefs.pitch.default;
-
-        let count = 0;
-        for (const i in rooms) {
-            const room = rooms[i];
-            for (let u in room.users) {
-                const user = room.users[u];
-                if (user.getIp() == this.getIp()) {
-                    count++;
-                }
-            }
-        }
-        // i will always find ways to fix things (originally)
-        if (count > 0 && this.getIp() != "::1") {
-            this.socket.emit("loginFail", {
-                reason: "TooMany"
-            });
-            return;
-        }
         // Join room
         this.room.join(this);
 
